@@ -1,0 +1,16 @@
+.husky
+*.md
+.gitignore
+.github
+.DS_Store
+.gitignore
+.editorconfig
+.eslintignore
+.prettierignore
+.stylelintignore
+*.lock
+*.yml
+*.yaml
+LICENSE
+
+dist
