@@ -35,7 +35,6 @@ describe('smoke tests', () => {
     cy.login()
     cy.visit('/')
 
-    // FIXME
     cy.findByRole('link', { name: /notes/i }).click()
     cy.findByText('No notes yet')
 

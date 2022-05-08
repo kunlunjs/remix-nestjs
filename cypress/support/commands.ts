@@ -38,7 +38,7 @@ function login({
 } = {}) {
   cy.then(() => ({ email })).as('user')
   cy.exec(
-    `ts-node --require tsconfig-paths/register ./cypress/support/create-user.ts "${email}"`,
+    `npx ts-node --require tsconfig-paths/register ./cypress/support/create-user.ts "${email}"`,
     {
       failOnNonZeroExit: false
     }
@@ -67,7 +67,7 @@ function cleanupUser({ email }: { email?: string } = {}) {
 
 function deleteUserByEmail(email: string) {
   cy.exec(
-    `ts-node --require tsconfig-paths/register ./cypress/support/delete-user.ts "${email}"`,
+    `npx ts-node --require tsconfig-paths/register ./cypress/support/delete-user.ts "${email}"`,
     {
       failOnNonZeroExit: false
     }
