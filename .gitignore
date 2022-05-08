@@ -107,3 +107,5 @@ pnpm-lock.yaml
 yarn.lock
 build
 postgres-data
+
+.DS_Store
