@@ -11,8 +11,9 @@ Remix 项目模板，使用 NestJS 作为服务端
 - ✅ [Rehype]()
 - ✅ [PostgreSQL]()
 - ✅ [Cypress]()
-- [ ] [NestJS]()
 - [ ] [Docker]()
+- [ ] [NestJS]()
+- [ ] [contentlayer](https://github.com/contentlayerdev/contentlayer)
 - [ ] [Fly.io]()
 
 ## 开发
@@ -26,6 +27,10 @@ Remix 项目模板，使用 NestJS 作为服务端
 ## 测试
 1. `npm run build`
 2. `npm run test:e2e:dev` or `npm run test:e2e:run`
+
+## 生产
+1. `npm run build`
+2. `npm run start` or `npm run start:pm2` or `npm run start:mocks`
 
 ## 目录结构
 

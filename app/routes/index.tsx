@@ -11,7 +11,7 @@ export default function Index() {
             <div className="absolute inset-0">
               <img
                 className="h-full w-full object-cover"
-                src="background.jpeg"
+                src="images/background.jpeg"
                 alt="BB King playing blues on his Les Paul guitar"
               />
               <div className="absolute inset-0 bg-[color:rgba(27,167,254,0.5)] mix-blend-multiply" />
@@ -53,7 +53,7 @@ export default function Index() {
               </div>
               <a href="https://remix.run">
                 <img
-                  src="/Remix.svg"
+                  src="images/Remix.svg"
                   alt="Remix"
                   className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
                 />
@@ -66,57 +66,72 @@ export default function Index() {
           <div className="mt-6 flex flex-wrap justify-center gap-8">
             {[
               {
-                src: 'Fly.io.svg',
+                src: 'images/React.svg',
+                alt: 'React',
+                href: 'https://reactjs.org/'
+              },
+              {
+                src: 'images/Fly.io.svg',
                 alt: 'Fly.io',
                 href: 'https://fly.io'
               },
               {
-                src: 'PostgreSQL.svg',
+                src: 'images/PostgreSQL.svg',
                 alt: 'PostgreSQL',
                 href: 'https://www.postgresql.org/'
               },
               {
-                src: 'Prisma.svg',
+                src: 'images/Prisma.svg',
                 alt: 'Prisma',
                 href: 'https://prisma.io'
               },
               {
-                src: 'Tailwind.svg',
+                src: 'images/NestJS.svg',
+                alt: 'NestJS',
+                href: 'https://nestjs.com/'
+              },
+              {
+                src: 'images/Tailwind.svg',
                 alt: 'Tailwind',
                 href: 'https://tailwindcss.com'
               },
               {
-                src: 'Cypress.svg',
+                src: 'images/Cypress.svg',
                 alt: 'Cypress',
                 href: 'https://www.cypress.io'
               },
               {
-                src: 'MSW.svg',
+                src: 'images/MSW.svg',
                 alt: 'MSW',
                 href: 'https://mswjs.io'
               },
               {
-                src: 'Vitest.svg',
+                src: 'images/Vitest.svg',
                 alt: 'Vitest',
                 href: 'https://vitest.dev'
               },
               {
-                src: 'Testing-Library.png',
+                src: 'images/Testing-Library.png',
                 alt: 'Testing Library',
                 href: 'https://testing-library.com'
               },
               {
-                src: 'Prettier.svg',
+                src: 'images/Prettier.svg',
                 alt: 'Prettier',
                 href: 'https://prettier.io'
               },
               {
-                src: 'ESLint.svg',
+                src: 'images/ESLint.svg',
                 alt: 'ESLint',
                 href: 'https://eslint.org'
               },
               {
-                src: 'TypeScript.svg',
+                src: 'images/StyleLint.svg',
+                alt: 'StyleLint',
+                href: 'https://stylelint.io/'
+              },
+              {
+                src: 'images/TypeScript.svg',
                 alt: 'TypeScript',
                 href: 'https://typescriptlang.org'
               }

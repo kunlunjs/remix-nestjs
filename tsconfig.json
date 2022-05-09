@@ -2,7 +2,7 @@
   "include": ["remix.env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["./cypress"],
   "compilerOptions": {
-    "lib": ["ES2019", "DOM", "DOM.Iterable"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": ["vitest/globals"],
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -10,7 +10,7 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "target": "ES2019",
+    "target": "ESNext",
     "strict": true,
     "baseUrl": ".",
     "paths": {

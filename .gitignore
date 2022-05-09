@@ -109,3 +109,5 @@ build
 postgres-data
 
 .DS_Store
+
+app/styles/tailwind.css
