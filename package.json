@@ -8,6 +8,7 @@
     "build:css": "npm run generate:css -- --minify",
     "build:remix": "remix build",
     "build:server": "esbuild --platform=node --format=cjs ./server.ts --outdir=build",
+    "predev": "npm run build",
     "dev": "run-p dev:*",
     "dev:server": "cross-env NODE_ENV=development node --inspect --require ./node_modules/dotenv/config --require ./mocks ./build/server.js",
     "dev:build": "cross-env NODE_ENV=development npm run build:server -- --watch",
@@ -32,11 +33,12 @@
   },
   "dependencies": {
     "@prisma/client": "^3.13.0",
-    "@remix-run/express": "*",
-    "@remix-run/node": "*",
-    "@remix-run/react": "*",
-    "@remix-run/server-runtime": "*",
+    "@remix-run/express": "1.4.3",
+    "@remix-run/node": "1.4.3",
+    "@remix-run/react": "1.4.3",
+    "@remix-run/server-runtime": "1.4.3",
     "bcryptjs": "^2.4.3",
+    "chalk": "4.1.2",
     "compression": "^1.7.4",
     "cross-env": "^7.0.3",
     "express": "^4.18.1",
@@ -48,8 +50,8 @@
   "devDependencies": {
     "@faker-js/faker": "^6.3.1",
     "@kunlunjs/fabric": "^0.2.4",
-    "@remix-run/dev": "*",
-    "@remix-run/eslint-config": "*",
+    "@remix-run/dev": "1.4.3",
+    "@remix-run/eslint-config": "1.4.3",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -74,7 +76,7 @@
     "esbuild": "^0.14.38",
     "eslint": "^8.15.0",
     "happy-dom": "^3.1.1",
-    "husky": "^7.0.4",
+    "husky": "^8.0.0",
     "lint-staged": "^12.4.1",
     "msw": "^0.39.2",
     "npm-run-all": "^4.1.5",
@@ -89,7 +91,7 @@
     "typescript": "^4.6.4",
     "vite": "^2.9.8",
     "vite-tsconfig-paths": "^3.4.1",
-    "vitest": "^0.11.0"
+    "vitest": "^0.12.0"
   },
   "engines": {
     "node": ">=14"
