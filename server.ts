@@ -1,5 +1,6 @@
 import path from 'path'
 import { createRequestHandler } from '@remix-run/express'
+import chalk from 'chalk'
 import compression from 'compression'
 import express from 'express'
 import morgan from 'morgan'
@@ -63,7 +64,15 @@ app.use(
 // more aggressive with this caching.
 app.use(express.static('public', { maxAge: '1h' }))
 
-app.use(morgan('tiny'))
+// https://github.com/expressjs/morgan
+// app.use(morgan('tiny'))
+app.use(
+  morgan(
+    chalk.gray(
+      ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"'
+    )
+  )
+)
 
 const MODE = process.env.NODE_ENV
 const BUILD_DIR = path.join(process.cwd(), 'build')

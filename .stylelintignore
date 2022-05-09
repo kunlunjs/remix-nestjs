@@ -15,3 +15,4 @@
 **/*.graphql
 
 app/styles/tailwind.css
+build

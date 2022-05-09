@@ -1,17 +1,21 @@
 # remix-nestjs
 Remix 项目模板，使用 NestJS 作为服务端
 
-## Usage
+## 使用
 `npx create-remix --template turing-fe/remix-nestjs remix-nestjs-project`
 
-## Feature
-- [ ] NestJS
-- [ ] React18
-- [ ] MDX
-- [ ] Remark
-- [ ] Rehype
+## 功能
+- ✅ [React18]()
+- ✅ [MDX]()
+- ✅ [Remark]()
+- ✅ [Rehype]()
+- ✅ [PostgreSQL]()
+- ✅ [Cypress]()
+- [ ] [NestJS]()
+- [ ] [Docker]()
+- [ ] [Fly.io]()
 
-## Developing
+## 开发
 1. `pnpm i`
 2. `copy .env.example .env`
 3. `npm run docker`
@@ -19,7 +23,7 @@ Remix 项目模板，使用 NestJS 作为服务端
 5. `npm run build`
 6. `npm run dev`
 
-## Testing
+## 测试
 1. `npm run build`
 2. `npm run test:e2e:dev` or `npm run test:e2e:run`
 
@@ -99,7 +103,7 @@ remix-nestjs
 └─ vitest.config.ts                
 ```
 
-## Upgrate to React 18
+## 升级为 React18
 `app/entry.client.tsx`
 
 ```diff
@@ -109,6 +113,7 @@ remix-nestjs
 + import { hydrateRoot } from 'react-dom/client'
 + hydrateRoot(document, <RemixBrowser />)
 ```
+
 
 ## 相关链接
 - [cypress](https://docs.cypress.io/)
