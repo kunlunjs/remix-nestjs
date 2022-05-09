@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  db:
+    image: mysql:8
+    restart: always
+    ports:
+      - ${DOCKER_DB_PORT:-3306}:3306
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=remix-nestjs
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      # Linux #
+      - /root/confs/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - /root/db/mysql/data:/var/lib/mysql
+      # Mac #
+      # - ./confs/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      # - ./db/mysql/data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
