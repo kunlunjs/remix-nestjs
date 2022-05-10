@@ -4,7 +4,8 @@ import { useOptionalUser } from '~/utils'
 export default function Index() {
   const user = useOptionalUser()
   return (
-    <main className="relative min-h-screen bg-white sm:flex sm:items-center sm:justify-center">
+    // sm:items-center
+    <main className="relative min-h-screen bg-white sm:flex sm:justify-center">
       <div className="relative sm:pb-16 sm:pt-8">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
@@ -14,12 +15,13 @@ export default function Index() {
                 src="images/background.jpeg"
                 alt="BB King playing blues on his Les Paul guitar"
               />
-              <div className="absolute inset-0 bg-[color:rgba(27,167,254,0.5)] mix-blend-multiply" />
+              {/* bg-[color:rgba(27,167,254,0.5)] mix-blend-multiply */}
+              <div className="absolute inset-0" />
             </div>
             <div className="lg:pb-18 relative px-4 pt-16 pb-8 sm:px-6 sm:pt-24 sm:pb-14 lg:px-8 lg:pt-32">
-              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
+              <h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-6xl">
                 <span className="block uppercase text-blue-500 drop-shadow-md">
-                  Blues Stack
+                  Remix NestJS Stack
                 </span>
               </h1>
               <p className="mx-auto mt-6 max-w-lg text-center text-xl text-white sm:max-w-3xl">
@@ -51,13 +53,13 @@ export default function Index() {
                   </div>
                 )}
               </div>
-              <a href="https://remix.run">
+              {/* <a href="https://remix.run">
                 <img
                   src="images/Remix.svg"
                   alt="Remix"
                   className="mx-auto mt-16 w-full max-w-[12rem] md:max-w-[16rem]"
                 />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

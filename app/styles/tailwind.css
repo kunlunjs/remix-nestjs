@@ -1405,6 +1405,11 @@ select {
   line-height: 2rem;
 }
 
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
 .font-extrabold {
   font-weight: 800;
 }
@@ -2281,6 +2286,11 @@ select {
 
   .lg\:text-9xl {
     font-size: 8rem;
+    line-height: 1;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
     line-height: 1;
   }
 }
