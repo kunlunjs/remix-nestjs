@@ -4,31 +4,18 @@ import { NestFactory } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import chalk from 'chalk'
 import express from 'express'
-import morgan from 'morgan'
+import { Logger } from 'nestjs-pino'
 import { AppModule } from './app.module'
 // import { PrismaService } from './common/prisma'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
-    logger: false
+    bufferLogs: true
   })
 
   app.disable('x-powered-by')
-  app.use(
-    morgan(
-      chalk.gray(
-        ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"'
-      ),
-      {
-        skip(req) {
-          return /\/build|\/manifest|\/images|\/_shared|\/root|\/entry|\.js|\.css/.test(
-            req.url || ''
-          )
-        }
-      }
-    )
-  )
+  app.useLogger(app.get(Logger))
   // Remix fingerprints its assets so we can cache forever.
   app.use(
     '/build',

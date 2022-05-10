@@ -73,11 +73,13 @@
     "lodash": "^4.17.21",
     "methods": "^1.1.2",
     "mime-types": "^2.1.35",
-    "morgan": "^1.10.0",
     "multer": "^1.4.4",
+    "nestjs-pino": "^2.5.2",
     "passport": "^0.5.2",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
+    "pino-http": "^7.0.0",
+    "pino-pretty": "^7.6.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "reflect-metadata": "^0.1.13",
@@ -107,7 +109,6 @@
     "@types/express": "^4.17.13",
     "@types/fs-extra": "^9.0.13",
     "@types/lodash": "^4.14.182",
-    "@types/morgan": "^1.9.3",
     "@types/node": "^17.0.31",
     "@types/prettier": "^2.6.0",
     "@types/react": "^18.0.9",
@@ -143,7 +144,7 @@
     "vitest": "^0.11.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "prisma": {
     "seed": "ts-node --require tsconfig-paths/register prisma/seed.ts"
