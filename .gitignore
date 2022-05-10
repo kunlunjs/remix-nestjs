@@ -103,7 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+package-lock.json
 pnpm-lock.yaml
+pnpm-lock.yml
 yarn.lock
 build
 postgres-data

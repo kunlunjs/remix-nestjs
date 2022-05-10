@@ -5,12 +5,12 @@ Remix 项目模板，使用 NestJS 作为服务端
 `npx create-remix --template turing-fe/remix-nestjs remix-nestjs-project`
 
 ## 功能
-- ✅ [React18]()
-- ✅ [MDX]()
-- ✅ [Remark]()
-- ✅ [Rehype]()
-- ✅ [PostgreSQL]()
-- ✅ [Cypress]()
+- ✅  [React18]()
+- ✅  [MDX]()
+- ✅  [Remark]()
+- ✅  [Rehype]()
+- ✅  [PostgreSQL]()
+- ✅  [Cypress]()
 - [ ] [Docker]()
 - [ ] [NestJS]()
 - [ ] [contentlayer](https://github.com/contentlayerdev/contentlayer)
@@ -21,8 +21,9 @@ Remix 项目模板，使用 NestJS 作为服务端
 2. `copy .env.example .env`
 3. `npm run docker`
 4. `npx prisma generate`
-5. `npm run build`
-6. `npm run dev`
+5. `npx prisma db push`
+6. `npm run build`
+7. `npm run dev`
 
 ## 测试
 1. `npm run build`
@@ -32,7 +33,8 @@ Remix 项目模板，使用 NestJS 作为服务端
 1. `npm run build`
 2. `npm run start` or `npm run start:pm2` or `npm run start:mocks`
 
-## 目录结构
+<details>
+  <summary>目录结构</summary>
 
 ```
 remix-nestjs                       
@@ -107,9 +109,10 @@ remix-nestjs
 ├─ verify-commit-msg.js            
 └─ vitest.config.ts                
 ```
+</details>
 
 ## 升级为 React18
-`app/entry.client.tsx`
+> app/entry.client.tsx
 
 ```diff
 - import { hydrate } from 'react-dom'
@@ -121,4 +124,14 @@ remix-nestjs
 
 
 ## 相关链接
+- [remix](https://remix.run/docs/en/v1)
+- [blues-stack](https://github.com/remix-run/blues-stack)
+- [TaiwindCSS](https://tailwindcss.com/)
+- [NestJS](https://nestjs.com/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [cypress](https://docs.cypress.io/)
+- [Fly.io](https://fly.io/)
+- [Vitest](https://vitest.dev/)
+- [Testing Library](https://testing-library.com/)
+- [Mock Service Worker](https://mswjs.io/)
