@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { resolve } from 'path'
+import path from 'path'
 import { NestFactory } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import chalk from 'chalk'
@@ -32,7 +32,7 @@ async function bootstrap() {
   // Remix fingerprints its assets so we can cache forever.
   app.use(
     '/build',
-    express.static(resolve(process.cwd(), 'public/build'), {
+    express.static(path.resolve(process.cwd(), 'public/build'), {
       immutable: true,
       maxAge: '1y'
     })

@@ -5,7 +5,7 @@ import { ConfigService } from '@nestjs/config'
 import type { Request, Response, NextFunction } from 'express'
 
 @Injectable()
-export class PreMiddleware implements NestMiddleware {
+export class PresetMiddleware implements NestMiddleware {
   constructor(private readonly configService: ConfigService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {

@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { FlyMiddleware, PreMiddleware, RemixMiddleware } from './middlewares'
+import { FlyMiddleware, PresetMiddleware } from './middlewares'
 
 @Module({
   imports: [
@@ -16,10 +16,18 @@ import { FlyMiddleware, PreMiddleware, RemixMiddleware } from './middlewares'
     //     return [
     //       {
     //         rootPath: path.resolve(process.cwd(), 'public/build'),
-    //         renderPath: path.resolve(process.cwd(), 'public/build'),
-    //         exclude: ['/', '/build/*', '/notes/*', '/posts/*'],
+    //         renderPath: 'build',
+    //         exclude: ['/api/*'],
     //         serveStaticOptions: {
     //           immutable: true,
+    //           maxAge: '1y'
+    //         }
+    //       },
+    //       {
+    //         rootPath: path.resolve(process.cwd(), 'public'),
+    //         // renderPath: path.resolve(process.cwd(), 'public/build'),
+    //         exclude: ['/api/*'],
+    //         serveStaticOptions: {
     //           maxAge: '1y'
     //         }
     //       }
@@ -34,8 +42,8 @@ import { FlyMiddleware, PreMiddleware, RemixMiddleware } from './middlewares'
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
-      .apply(PreMiddleware, FlyMiddleware, RemixMiddleware)
-      .exclude('build/*')
+      .apply(PresetMiddleware, FlyMiddleware)
+      // .exclude('build/*')
       .forRoutes('*')
   }
 }
