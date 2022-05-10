@@ -1,0 +1,7 @@
+{
+  "language": "ts",
+  "sourceRoot": "server",
+  "compilerOptions": {
+    "plugins": ["@nestjs/swagger/plugin", "@nestjs/graphql/plugin"]
+  }
+}
