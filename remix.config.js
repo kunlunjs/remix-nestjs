@@ -12,7 +12,7 @@ module.exports = {
   //   })
   // },
   // serverBuildPath: 'build/index.js',
-  // serverBuildTarget: 'node-cjs',
+  // serverBuildTarget: 'node-cjs', // vercel
   // serverDependenciesToBundle: [
   //   /^rehype.*/,
   //   /^remark.*/,

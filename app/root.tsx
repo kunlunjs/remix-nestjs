@@ -1,3 +1,4 @@
+import sandpackStylesSheetUrl from '@codesandbox/sandpack-react/dist/index.css'
 import type {
   LinksFunction,
   LoaderFunction,
@@ -16,7 +17,13 @@ import { getUser } from './session.server'
 import tailwindStylesheetUrl from './styles/tailwind.css'
 
 export const links: LinksFunction = () => {
-  return [{ rel: 'stylesheet', href: tailwindStylesheetUrl }]
+  return [
+    { rel: 'stylesheet', href: tailwindStylesheetUrl },
+    {
+      rel: 'stylesheet',
+      href: sandpackStylesSheetUrl
+    }
+  ]
 }
 
 export const meta: MetaFunction = () => ({
@@ -46,6 +53,7 @@ export default function App() {
         <Links />
       </head>
       <body className="h-full">
+        {/* 可以使用全局 Provider 包裹 */}
         <Outlet />
         <ScrollRestoration />
         <Scripts />
