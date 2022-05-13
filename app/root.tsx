@@ -13,6 +13,7 @@ import {
   Scripts,
   ScrollRestoration
 } from '@remix-run/react'
+import { Layout } from './components/layouts'
 import { getUser } from './session.server'
 import tailwindStylesheetUrl from './styles/tailwind.css'
 
@@ -54,10 +55,12 @@ export default function App() {
       </head>
       <body className="h-full">
         {/* 可以使用全局 Provider 包裹 */}
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        <Layout>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          {process.env.NODE_ENV === 'development' && <LiveReload />}
+        </Layout>
       </body>
     </html>
   )

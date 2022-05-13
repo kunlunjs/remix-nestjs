@@ -11,8 +11,8 @@ export function NavItem({ mobile = false, title, href }: NavItemProps) {
   if (mobile) {
     return (
       <Disclosure.Button
-        as="a"
-        href={href}
+        as={Link}
+        to={href}
         className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
       >
         {title}

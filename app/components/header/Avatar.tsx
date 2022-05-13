@@ -1,9 +1,14 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon } from '@heroicons/react/outline'
+import { Link } from '@remix-run/react'
 import clsx from 'clsx'
 import { Fragment } from 'react'
 
-export function Avatar({ mobile }: { mobile?: boolean } = { mobile: false }) {
+interface AvatarProps {
+  mobile?: boolean
+}
+
+export function Avatar({ mobile = false }: AvatarProps) {
   if (mobile) {
     return (
       <div className="border-t border-gray-200 pt-4 pb-3">
@@ -31,22 +36,22 @@ export function Avatar({ mobile }: { mobile?: boolean } = { mobile: false }) {
         </div>
         <div className="mt-3 space-y-1">
           <Disclosure.Button
-            as="a"
-            href="#"
+            as={Link}
+            to="#"
             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >
             个人资料
           </Disclosure.Button>
           <Disclosure.Button
-            as="a"
-            href="#"
+            as={Link}
+            to="#"
             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >
             设置
           </Disclosure.Button>
           <Disclosure.Button
-            as="a"
-            href="#"
+            as={Link}
+            to="#"
             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >
             退出登录
@@ -68,41 +73,41 @@ export function Avatar({ mobile }: { mobile?: boolean } = { mobile: false }) {
       <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
         <Menu.Item>
           {({ active }) => (
-            <a
-              href="#"
+            <Link
+              to="#"
               className={clsx(
                 active ? 'bg-gray-100' : '',
                 'block px-4 py-2 text-sm text-gray-700'
               )}
             >
               个人资料
-            </a>
+            </Link>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
-            <a
-              href="#"
+            <Link
+              to="#"
               className={clsx(
                 active ? 'bg-gray-100' : '',
                 'block px-4 py-2 text-sm text-gray-700'
               )}
             >
               设置
-            </a>
+            </Link>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
-            <a
-              href="#"
+            <Link
+              to="#"
               className={clsx(
                 active ? 'bg-gray-100' : '',
                 'block px-4 py-2 text-sm text-gray-700'
               )}
             >
               退出登录
-            </a>
+            </Link>
           )}
         </Menu.Item>
       </Menu.Items>
