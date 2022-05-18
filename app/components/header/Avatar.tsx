@@ -40,14 +40,14 @@ export function Avatar({ mobile = false }: AvatarProps) {
             to="#"
             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >
-            个人资料
+            设置
           </Disclosure.Button>
           <Disclosure.Button
             as={Link}
             to="#"
             className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
           >
-            设置
+            个人资料
           </Disclosure.Button>
           <Disclosure.Button
             as={Link}
@@ -80,7 +80,7 @@ export function Avatar({ mobile = false }: AvatarProps) {
                 'block px-4 py-2 text-sm text-gray-700'
               )}
             >
-              个人资料
+              设置
             </Link>
           )}
         </Menu.Item>
@@ -93,7 +93,7 @@ export function Avatar({ mobile = false }: AvatarProps) {
                 'block px-4 py-2 text-sm text-gray-700'
               )}
             >
-              设置
+              个人资料
             </Link>
           )}
         </Menu.Item>

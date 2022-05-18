@@ -1,19 +1,27 @@
 import { Disclosure } from '@headlessui/react'
-import { UsersIcon, ViewGridIcon } from '@heroicons/react/outline'
+import * as icons from '@heroicons/react/outline'
 import { Link, Outlet } from '@remix-run/react'
 import clsx from 'clsx'
 
-const navigation = [
+type Navigation = {
+  name: string
+  href?: string
+  current?: boolean
+  icon?: keyof typeof icons
+  children?: Navigation[]
+}
+
+const navigation: Navigation[] = [
   {
     name: '组件总览',
     href: '/components/overriew',
     current: true,
-    icon: ViewGridIcon
+    icon: 'ViewGridIcon'
   },
   {
     name: '数据展示',
     current: false,
-    icon: UsersIcon,
+    icon: 'UsersIcon',
     children: [{ name: '卡片', href: '/components/card' }]
   }
 ]
@@ -28,11 +36,13 @@ export default function Components() {
               className="flex-1 space-y-1 bg-white px-2"
               aria-label="Sidebar"
             >
-              {navigation.map(item =>
-                !item.children ? (
+              {navigation.map(item => {
+                const Icon = item.icon ? icons[item.icon] : null // as ComponentType<any>
+
+                return !item.children ? (
                   <div key={item.name}>
                     <Link
-                      to={item.href}
+                      to={item?.href || '#'}
                       className={clsx(
                         item.current
                           ? 'bg-gray-100 text-gray-900'
@@ -40,15 +50,17 @@ export default function Components() {
                         'group flex w-full items-center rounded-md py-2 pl-2 text-sm font-medium'
                       )}
                     >
-                      <item.icon
-                        className={clsx(
-                          item.current
-                            ? 'text-gray-500'
-                            : 'text-gray-400 group-hover:text-gray-500',
-                          'mr-3 h-6 w-6 flex-shrink-0'
-                        )}
-                        aria-hidden="true"
-                      />
+                      {Icon ? (
+                        <Icon
+                          className={clsx(
+                            item.current
+                              ? 'text-gray-500'
+                              : 'text-gray-400 group-hover:text-gray-500',
+                            'mr-3 h-6 w-6 flex-shrink-0'
+                          )}
+                          aria-hidden="true"
+                        />
+                      ) : null}
                       {item.name}
                     </Link>
                   </div>
@@ -64,10 +76,12 @@ export default function Components() {
                             'group flex w-full items-center rounded-md py-2 pl-2 pr-1 text-left text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500'
                           )}
                         >
-                          <item.icon
-                            className="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
+                          {Icon ? (
+                            <Icon
+                              className="mr-3 h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                              aria-hidden="true"
+                            />
+                          ) : null}
                           <span className="flex-1">{item.name}</span>
                           <svg
                             className={clsx(
@@ -83,11 +97,11 @@ export default function Components() {
                           </svg>
                         </Disclosure.Button>
                         <Disclosure.Panel className="space-y-1">
-                          {item.children.map(subItem => (
+                          {(item?.children || []).map(subItem => (
                             <Disclosure.Button
                               key={subItem.name}
                               as={Link}
-                              to={subItem.href}
+                              to={subItem?.href || ''}
                               className="group flex w-full items-center rounded-md py-2 pl-11 pr-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                             >
                               {subItem.name}
@@ -98,7 +112,7 @@ export default function Components() {
                     )}
                   </Disclosure>
                 )
-              )}
+              })}
             </nav>
           </div>
         </div>

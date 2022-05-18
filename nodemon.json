@@ -1,0 +1,17 @@
+{
+  "verbose": true,
+  "ignore": ["*.test.ts", "*.spec.ts", "*.test.js", "*.spec.js"],
+  "watch": ["app", "mocks", "server"],
+  "events": {
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  },
+  "script": "server.ts",
+  "execMap": {
+    "js": "node --inspect --require ./node_modules/dotenv/config --require ./mocks",
+    "ts": "nest start --watch"
+  },
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,ts,json"
+}

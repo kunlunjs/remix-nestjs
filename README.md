@@ -36,78 +36,81 @@ Remix 项目模板，使用 NestJS 作为服务端
 <details>
   <summary>目录结构</summary>
 
-```
-remix-nestjs                       
-├─ app                             
-│  ├─ models                                
-│  │  └─ note.server.ts    操作 Note 表数据
-│  │  └─ user.server.ts    操作 User 表数据           
-│  ├─ routes                       
-│  │  ├─ notes                     
-│  │  │  ├─ $noteId.tsx    对应前端 /notes/:noteId 路由         
-│  │  │  ├─ index.tsx      对应前端 /notes 路由         
-│  │  │  └─ new.tsx        对应前端 /notes/new 路由         
-│  │  ├─ healthcheck.tsx   对应前端 /healthcheck 路由           
-│  │  ├─ index.tsx         对应前端 / 路由         
-│  │  ├─ join.tsx          对应前端 /join 路由            
-│  │  ├─ login.tsx         对应前端 /login 路由            
-│  │  ├─ logout.tsx        执行退出登录操作（无页面）                         
-│  ├─ styles                       
-│  │  └─ tailwind.css      由 npm run generate:css 生成        
-│  ├─ db.server.ts         prisma 初始化        
-│  ├─ entry.client.tsx     浏览器端入口        
-│  ├─ entry.server.tsx     服务端入口        
-│  ├─ root.tsx                     
-│  ├─ session.server.ts    cookie 存取         
-│  ├─ utils.test.ts                
-│  └─ utils.ts             工具函数        
-├─ cypress                 页面自动化测试        
-│  ├─ e2e                          
-│  │  └─ smoke.ts                  
-│  ├─ fixtures                     
-│  │  └─ example.json              
-│  ├─ plugins                      
-│  │  └─ index.ts                  
-│  ├─ support                      
-│  │  ├─ commands.ts               
-│  │  ├─ create-user.ts            
-│  │  ├─ delete-user.ts            
-│  │  └─ index.ts                  
-│  ├─ videos                       
-│  │  └─ smoke.ts.mp4      [optional] npm run test:e2e:run 生成              
-│  └─ tsconfig.json                
-├─ mocks                   mock 数据        
-│  ├─ index.js                     
-│  └─ start.ts                     
-├─ postgres-data           [optional] docker-compose.yml 中 PostgreSQL 本地数据卷映射目录        
-├─ prisma                          
-│  ├─ schema.prisma        Prisma 数据对象定义        
-│  └─ seed.ts              Prisma 初始化数据        
-├─ public                  静态文件目录        
-│  └─ favicon.ico                  
-├─ remix.init                      
-│  ├─ index.js                     
-│  ├─ package.json                 
-│  └─ pnpm-lock.yaml               
-├─ test                            
-│  └─ setup-test-env.ts            
-├─ Dockerfile                      
-├─ LICENSE                         
-├─ README.md                       
-├─ cypress.json                    
-├─ docker-compose.yml              
-├─ fly.toml                 部署至 fly.io       
-├─ lint-staged.config.js           
-├─ package.json                                     
-├─ prettier.config.js              
-├─ remix.config.js                 
-├─ remix.env.d.ts                  
-├─ server.ts                       
-├─ stylelint.config.js             
-├─ tailwind.config.js              
-├─ tsconfig.json                   
-├─ verify-commit-msg.js            
-└─ vitest.config.ts                
+```bash
+remix-nestjs                               
+├─ app                                     
+│  ├─ components                  # 前端组件                              
+│  ├─ models                      # prisma model         
+│  │  ├─ note.server.ts                    
+│  │  └─ user.server.ts                    
+│  ├─ routes                      # 路由页                                        
+│  │  ├─ healthcheck.tsx                   
+│  │  ├─ index.tsx                         
+│  │  ├─ join.tsx                          
+│  │  ├─ login.tsx                         
+│  │  ├─ logout.tsx                        
+│  │  ├─ notes.tsx                                                                                         
+│  ├─ styles                               
+│  │  └─ tailwind.css                      
+│  ├─ db.server.ts                # 全局 prisma 对象         
+│  ├─ entry.client.tsx            # 实用 react-dom 将组件挂载到根元素上         
+│  ├─ entry.server.tsx            # 后端返回 html         
+│  ├─ root.tsx                    # 前端根组件         
+│  ├─ session.server.ts                    
+│  ├─ utils.test.ts                        
+│  └─ utils.ts                             
+├─ build                          # 服务端构建输出                                 
+├─ cypress                        # UI 测试                              
+├─ mocks                          # mock 数据         
+│  ├─ index.js                             
+│  └─ start.ts                                                 
+├─ prisma                         # prisma model 定义         
+│  ├─ schema.prisma               # 数据库初始化         
+│  └─ seed.ts                              
+├─ public                         # 前端构建输出及静态文件                             
+├─ remix.init                              
+│  ├─ index.js                             
+│  ├─ package.json                                              
+├─ server                         # NestJS backend         
+│  ├─ common                               
+│  │  ├─ config.ts                         
+│  │  ├─ index.ts                          
+│  │  └─ utils.ts                          
+│  ├─ filters                              
+│  ├─ interfaces                           
+│  ├─ middlewares                          
+│  │  ├─ fly.middleware.ts                 
+│  │  ├─ index.ts                          
+│  │  └─ preset.middleware.ts              
+│  ├─ app.controller.ts                    
+│  ├─ app.module.ts                        
+│  ├─ app.service.ts                       
+│  └─ main.ts                      # NestJS backend 入口        
+├─ test                                    
+│  └─ setup-test-env.ts                    
+├─ Dockerfile                              
+├─ LICENSE                                 
+├─ README.md                               
+├─ cypress.json                            
+├─ docker-compose.mysql.yml                
+├─ docker-compose.yml                      
+├─ ecosystem.config.js             # pm2 启动配置        
+├─ fly.toml                        # 部署至 fly.io        
+├─ lint-staged.config.js                   
+├─ nest-cli.json                           
+├─ nodemon.json                            
+├─ package.json                            
+├─ pnpm-lock.yaml                          
+├─ prettier.config.js                      
+├─ remix.config.js                         
+├─ remix.env.d.ts                          
+├─ server.ts                       # backend entrypoint        
+├─ stylelint.config.js                     
+├─ tailwind.config.js                      
+├─ tsconfig.build.json                     
+├─ tsconfig.json                           
+├─ verify-commit-msg.js                    
+└─ vitest.config.ts                                     
 ```
 </details>
 
@@ -121,6 +124,9 @@ remix-nestjs
 + import { hydrateRoot } from 'react-dom/client'
 + hydrateRoot(document, <RemixBrowser />)
 ```
+
+## TODO
+- [ ] nodemon
 
 
 ## 相关链接

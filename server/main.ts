@@ -5,18 +5,18 @@ import { NestFactory } from '@nestjs/core'
 import type { NestExpressApplication } from '@nestjs/platform-express'
 import chalk from 'chalk'
 import express from 'express'
-import { Logger } from 'nestjs-pino'
+// import { Logger } from 'nestjs-pino'
 import { AppModule } from './app.module'
 // import { PrismaService } from './common/prisma'
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    cors: true,
-    bufferLogs: true
+    cors: true
+    // bufferLogs: true
   })
 
   app.disable('x-powered-by')
-  app.useLogger(app.get(Logger))
+  // app.useLogger(app.get(Logger))
   app.use(
     '/build',
     express.static(path.resolve(process.cwd(), 'public/build'), {
@@ -36,7 +36,6 @@ async function bootstrap() {
   // prismaService.enableShutdownHooks(app)
 
   // app.setGlobalPrefix('api')
-  // for async validator
   // useContainer(app.select<AppModule>(AppModule), {
   //   fallbackOnErrors: true
   // })
@@ -46,16 +45,13 @@ async function bootstrap() {
   //   })
   // )
   // app.useGlobalInterceptors()
-  /* filters */
   // app.useGlobalFilters(new PrismaClientExceptionFilter(httpAdapter))
-
-  /* swagger */
   // setupSwagger(app)
 
   await app.listen(configService.get('PORT') || 3000)
   console.log(
     chalk.green(
-      `⚡️ Application is running on: ${chalk.underline(await app.getUrl())}`
+      `⚡️ Application is running on1: ${chalk.underline(await app.getUrl())}`
     )
   )
 }

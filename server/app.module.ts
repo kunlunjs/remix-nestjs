@@ -1,7 +1,7 @@
 import type { MiddlewareConsumer, NestModule } from '@nestjs/common'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import { LoggerModule } from 'nestjs-pino'
+// import { LoggerModule } from 'nestjs-pino'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { FlyMiddleware, PresetMiddleware } from './middlewares'
@@ -10,26 +10,19 @@ import { FlyMiddleware, PresetMiddleware } from './middlewares'
   imports: [
     ConfigModule.forRoot({
       isGlobal: true
-    }),
-    // TODO: forRootAsync
-    LoggerModule.forRoot({
-      pinoHttp: {
-        level: process.env.NODE_ENV !== 'production' ? 'debug' : 'info',
-        transport:
-          process.env.NODE_ENV !== 'production'
-            ? {
-                target: 'pino-pretty'
-              }
-            : undefined
-      }
-      // forRoutes: [],
-      // exclude: [
-      //   {
-      //     method: RequestMethod.ALL,
-      //     path: 'manifest'
-      //   }
-      // ]
     })
+    // TODO: forRootAsync
+    // LoggerModule.forRoot({
+    //   pinoHttp: {
+    //     level: process.env.NODE_ENV !== 'production' ? 'debug' : 'info',
+    //     transport:
+    //       process.env.NODE_ENV !== 'production'
+    //         ? {
+    //             target: 'pino-pretty'
+    //           }
+    //         : undefined
+    //   }
+    // })
     // TODO: replace express static
     // ServeStaticModule.forRootAsync({
     //   inject: [ConfigService],
